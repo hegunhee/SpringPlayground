@@ -1,0 +1,29 @@
+package com.example.SpringPlayground;
+
+import java.util.UUID;
+
+class Coffee{
+    private final String id;
+    private String name;
+
+    public Coffee(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Coffee(String id) {
+        this(UUID.randomUUID().toString(),id);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
