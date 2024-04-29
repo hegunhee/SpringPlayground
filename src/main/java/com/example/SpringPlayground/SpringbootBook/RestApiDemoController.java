@@ -1,4 +1,4 @@
-package com.example.SpringPlayground;
+package com.example.SpringPlayground.SpringbootBook;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,12 +29,6 @@ public class RestApiDemoController {
 
     public RestApiDemoController(CoffeeRepository coffeeRepository) {
         this.coffeeRepository = coffeeRepository;
-
-        this.coffeeRepository.saveAll(List.of(
-                new Coffee("Cafe Cereza"),
-                new Coffee("Cafe Genador"),
-                new Coffee("Cafe Lareno"),
-                new Coffee("Cafe Tres Pontas")));
     }
 
     @GetMapping
@@ -48,7 +42,7 @@ public class RestApiDemoController {
      */
 
     @GetMapping("/{id}")
-    Optional<Coffee> getCoffeeById(@PathVariable String id) {
+    Optional<Coffee> getCoffeeById(@PathVariable("id") String id) {
         return coffeeRepository.findById(id);
     }
 
@@ -61,14 +55,14 @@ public class RestApiDemoController {
      * PUT 메서드 응답의 경우 상태 코드는 필수임
      */
     @PutMapping("/{id}")
-    ResponseEntity<Coffee> putCoffee(@PathVariable String id, @RequestBody Coffee coffee) {
+    ResponseEntity<Coffee> putCoffee(@PathVariable("id") String id, @RequestBody Coffee coffee) {
         return (coffeeRepository.existsById(id))
                 ? new ResponseEntity<>(coffeeRepository.save(coffee), HttpStatus.OK)
                 : new ResponseEntity<>(coffee, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    void deleteCoffee(@PathVariable String id) {
+    void deleteCoffee(@PathVariable("id") String id) {
         coffeeRepository.deleteById(id);
     }
 }

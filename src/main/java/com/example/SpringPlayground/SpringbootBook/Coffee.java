@@ -1,4 +1,4 @@
-package com.example.SpringPlayground;
+package com.example.SpringPlayground.SpringbootBook;
 
 import java.util.UUID;
 
