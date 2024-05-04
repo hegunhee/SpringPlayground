@@ -2,7 +2,6 @@ package com.example.SpringPlayground.inflearn.service;
 
 import com.example.SpringPlayground.inflearn.domain.Member;
 import com.example.SpringPlayground.inflearn.repository.MemberRepository;
-import com.example.SpringPlayground.inflearn.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
