@@ -1,9 +1,9 @@
 package com.example.SpringPlayground.inflearn;
 
-import com.example.SpringPlayground.inflearn.repository.JdbcMemberRepository;
-import com.example.SpringPlayground.inflearn.repository.JdbcTemplateMemberRepository;
+import com.example.SpringPlayground.inflearn.repository.JpaMemberRepository;
 import com.example.SpringPlayground.inflearn.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.service.MemberService;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,13 +16,12 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+    private EntityManager em;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
-
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
@@ -30,6 +29,6 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
