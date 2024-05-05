@@ -1,6 +1,7 @@
 package com.example.SpringPlayground.inflearn;
 
 import com.example.SpringPlayground.inflearn.repository.JdbcMemberRepository;
+import com.example.SpringPlayground.inflearn.repository.JdbcTemplateMemberRepository;
 import com.example.SpringPlayground.inflearn.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,6 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
