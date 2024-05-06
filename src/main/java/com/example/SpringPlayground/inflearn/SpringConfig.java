@@ -1,10 +1,7 @@
 package com.example.SpringPlayground.inflearn;
 
-import com.example.SpringPlayground.inflearn.repository.JpaMemberRepository;
 import com.example.SpringPlayground.inflearn.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.service.MemberService;
-import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,19 +13,13 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private EntityManager em;
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
-    }
-    @Bean
-    public MemberService memberService() {
-        return new MemberService(memberRepository());
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
-    public MemberRepository memberRepository() {
-        return new JpaMemberRepository(em);
-    }
+    public MemberService memberService() { return new MemberService(memberRepository);}
+
 }
