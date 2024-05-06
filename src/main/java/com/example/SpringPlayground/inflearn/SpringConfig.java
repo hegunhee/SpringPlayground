@@ -1,5 +1,6 @@
 package com.example.SpringPlayground.inflearn;
 
+import com.example.SpringPlayground.inflearn.aop.TimeTraceAop;
 import com.example.SpringPlayground.inflearn.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.service.MemberService;
 import org.springframework.context.annotation.Bean;
@@ -21,5 +22,4 @@ public class SpringConfig {
 
     @Bean
     public MemberService memberService() { return new MemberService(memberRepository);}
-
 }
