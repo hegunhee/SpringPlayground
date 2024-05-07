@@ -6,12 +6,14 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.time.Instant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RedisHash
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Aircraft {
     @Id
@@ -41,17 +43,4 @@ public class Aircraft {
     private Instant posUpdateTime;
     @JsonProperty("bds40_seen_time")
     private Instant bds40SeenTime;
-
-
-    public void setLastSeenTime(long lastSeenTime) {
-        this.lastSeenTime = Instant.ofEpochSecond(lastSeenTime);
-    }
-
-    public void setPosUpdateTime(long posUpdateTime) {
-        this.posUpdateTime = Instant.ofEpochSecond(posUpdateTime);
-    }
-
-    public void setBds40SeenTime(long bds40SeenTime) {
-        this.bds40SeenTime = Instant.ofEpochSecond(bds40SeenTime);
-    }
 }
