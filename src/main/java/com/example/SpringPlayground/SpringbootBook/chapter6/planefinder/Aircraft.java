@@ -1,22 +1,22 @@
 package com.example.SpringPlayground.SpringbootBook.chapter6.planefinder;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.redis.core.RedisHash;
 
 import java.time.Instant;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@RedisHash
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Aircraft {
     @Id
+    @GeneratedValue
     private Long id;
     private String callsign, squawk, reg, flightno, route, type, category;
 

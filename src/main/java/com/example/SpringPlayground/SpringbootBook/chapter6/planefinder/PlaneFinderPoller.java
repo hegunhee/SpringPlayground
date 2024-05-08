@@ -1,7 +1,9 @@
 package com.example.SpringPlayground.SpringbootBook.chapter6.planefinder;
 
 import com.example.SpringPlayground.SpringbootBook.chapter6.repository.AircraftRepository;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
+import jakarta.annotation.PostConstruct;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -9,21 +11,16 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @EnableScheduling
 @Component
+@RequiredArgsConstructor
 public class PlaneFinderPoller {
     private WebClient client = WebClient.create("http://localhost:7634/aircraft");
 
-    private final RedisConnectionFactory connectionFactory;
+    @NonNull
     private final AircraftRepository repository;
-
-    PlaneFinderPoller(RedisConnectionFactory connectionFactory,
-                      AircraftRepository repository) {
-        this.connectionFactory = connectionFactory;
-        this.repository = repository;
-    }
 
     @Scheduled(fixedDelay = 1000)
     private void pollPlanes() {
-        connectionFactory.getConnection().serverCommands().flushDb();
+        repository.deleteAll();
 
         client.get()
                 .retrieve()
@@ -32,5 +29,13 @@ public class PlaneFinderPoller {
                 .toStream()
                         .forEach(repository::save);
         repository.findAll().forEach(System.out::println);
+    }
+
+    @PostConstruct
+    private void loadData() {
+        repository.deleteAll();
+
+        repository.save(new Aircraft(81L,
+                "AAL608"))
     }
 }
