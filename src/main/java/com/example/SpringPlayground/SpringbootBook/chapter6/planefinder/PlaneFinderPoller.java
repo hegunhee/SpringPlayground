@@ -1,7 +1,6 @@
 package com.example.SpringPlayground.SpringbootBook.chapter6.planefinder;
 
 import com.example.SpringPlayground.SpringbootBook.chapter6.repository.AircraftRepository;
-import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -31,11 +30,4 @@ public class PlaneFinderPoller {
         repository.findAll().forEach(System.out::println);
     }
 
-    @PostConstruct
-    private void loadData() {
-        repository.deleteAll();
-
-        repository.save(new Aircraft(81L,
-                "AAL608"))
-    }
 }
