@@ -1,4 +1,4 @@
-package com.example.SpringPlayground.inflearn.domain;
+package com.example.SpringPlayground.inflearn.spring.free.domain;
 
 import jakarta.persistence.*;
 

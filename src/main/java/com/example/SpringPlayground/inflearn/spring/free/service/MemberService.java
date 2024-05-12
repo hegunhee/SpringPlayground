@@ -1,7 +1,7 @@
-package com.example.SpringPlayground.inflearn.service;
+package com.example.SpringPlayground.inflearn.spring.free.service;
 
-import com.example.SpringPlayground.inflearn.domain.Member;
-import com.example.SpringPlayground.inflearn.repository.MemberRepository;
+import com.example.SpringPlayground.inflearn.spring.free.domain.Member;
+import com.example.SpringPlayground.inflearn.spring.free.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

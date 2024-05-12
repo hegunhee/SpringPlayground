@@ -1,4 +1,4 @@
-package com.example.SpringPlayground.inflearn.controller;
+package com.example.SpringPlayground.inflearn.spring.free.controller;
 
 public class MemberForm {
     private String name;

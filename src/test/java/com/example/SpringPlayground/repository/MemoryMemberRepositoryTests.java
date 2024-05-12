@@ -1,7 +1,7 @@
 package com.example.SpringPlayground.repository;
 
-import com.example.SpringPlayground.inflearn.domain.Member;
-import com.example.SpringPlayground.inflearn.repository.MemoryMemberRepository;
+import com.example.SpringPlayground.inflearn.spring.free.domain.Member;
+import com.example.SpringPlayground.inflearn.spring.free.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

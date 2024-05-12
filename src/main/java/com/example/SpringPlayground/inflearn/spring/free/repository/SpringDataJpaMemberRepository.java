@@ -1,6 +1,6 @@
-package com.example.SpringPlayground.inflearn.repository;
+package com.example.SpringPlayground.inflearn.spring.free.repository;
 
-import com.example.SpringPlayground.inflearn.domain.Member;
+import com.example.SpringPlayground.inflearn.spring.free.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

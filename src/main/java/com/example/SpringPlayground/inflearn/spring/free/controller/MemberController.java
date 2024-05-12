@@ -1,7 +1,7 @@
-package com.example.SpringPlayground.inflearn.controller;
+package com.example.SpringPlayground.inflearn.spring.free.controller;
 
-import com.example.SpringPlayground.inflearn.domain.Member;
-import com.example.SpringPlayground.inflearn.service.MemberService;
+import com.example.SpringPlayground.inflearn.spring.free.domain.Member;
+import com.example.SpringPlayground.inflearn.spring.free.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

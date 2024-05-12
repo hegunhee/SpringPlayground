@@ -1,4 +1,4 @@
-package com.example.SpringPlayground.inflearn.aop;
+package com.example.SpringPlayground.inflearn.spring.free.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

@@ -1,4 +1,4 @@
-package com.example.SpringPlayground.inflearn.controller;
+package com.example.SpringPlayground.inflearn.spring.free.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
