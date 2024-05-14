@@ -5,11 +5,18 @@ import com.example.SpringPlayground.inflearn.spring.basic.domain.member.Member;
 import com.example.SpringPlayground.inflearn.spring.basic.service.MemberService;
 import com.example.SpringPlayground.inflearn.spring.basic.service.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
     @Test
     void join() {
         // given (어떤 상황들이 주어지고)

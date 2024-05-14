@@ -4,16 +4,23 @@ import com.example.SpringPlayground.inflearn.spring.basic.domain.member.Grade;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.member.Member;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.order.Order;
 import com.example.SpringPlayground.inflearn.spring.basic.service.MemberService;
-import com.example.SpringPlayground.inflearn.spring.basic.service.MemberServiceImpl;
 import com.example.SpringPlayground.inflearn.spring.basic.service.OrderService;
-import com.example.SpringPlayground.inflearn.spring.basic.service.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {
