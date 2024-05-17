@@ -3,11 +3,15 @@ package com.example.SpringPlayground.inflearn.spring.basic.service;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.member.Member;
 import com.example.SpringPlayground.inflearn.spring.basic.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.spring.basic.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
 
+    @Autowired //ac.getBean(MemberRepository.class)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

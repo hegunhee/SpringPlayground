@@ -5,12 +5,16 @@ import com.example.SpringPlayground.inflearn.spring.basic.domain.order.Order;
 import com.example.SpringPlayground.inflearn.spring.basic.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.spring.basic.repository.MemoryMemberRepository;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.member.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
