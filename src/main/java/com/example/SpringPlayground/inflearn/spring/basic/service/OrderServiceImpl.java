@@ -1,5 +1,6 @@
 package com.example.SpringPlayground.inflearn.spring.basic.service;
 
+import com.example.SpringPlayground.inflearn.spring.basic.annotation.MainDiscountPolicy;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.discount.DiscountPolicy;
 import com.example.SpringPlayground.inflearn.spring.basic.domain.order.Order;
 import com.example.SpringPlayground.inflearn.spring.basic.repository.MemberRepository;
@@ -17,9 +18,10 @@ public class OrderServiceImpl implements OrderService{
     private final DiscountPolicy discountPolicy;
 
     @Autowired // 파라미터의 이름으로 특정 빈을 선택 가능함
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy rateDiscountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = rateDiscountPolicy;
+
     }
 
     @Override
