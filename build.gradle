@@ -38,6 +38,8 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 
+	implementation 'javax.inject:javax.inject:1'
+
 
 	runtimeOnly 'com.mysql:mysql-connector-j'
 }
