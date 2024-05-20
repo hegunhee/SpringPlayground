@@ -43,6 +43,10 @@ dependencies {
 
 
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	implementation 'junit:junit'
+
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.1'
 }
 
 tasks.named('test') {
