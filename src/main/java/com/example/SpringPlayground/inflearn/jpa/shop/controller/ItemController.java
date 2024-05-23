@@ -58,11 +58,8 @@ public class ItemController {
 
     //itemId에 대해 권한이 있는지 체크를 해줘야함
     @PostMapping("items/{itemId}/edit")
-    public String updateItem(@PathVariable("itemId") String itemId, @ModelAttribute("form") BookForm form) {
-        Book book = Book.createBook(form.getName(), form.getPrice(), form.getStockQuantity(), form.getAuthor(), form.getIsbn());
-        book.setId(form.getId());
-
-        itemService.saveItem(book);
+    public String updateItem(@PathVariable("itemId") Long itemId, @ModelAttribute("form") BookForm form) {
+        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity());
         return "redirect:/items";
     }
 }

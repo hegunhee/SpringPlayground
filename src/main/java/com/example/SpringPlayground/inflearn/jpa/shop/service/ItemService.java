@@ -1,5 +1,6 @@
 package com.example.SpringPlayground.inflearn.jpa.shop.service;
 
+import com.example.SpringPlayground.inflearn.jpa.shop.domain.item.Book;
 import com.example.SpringPlayground.inflearn.jpa.shop.domain.item.Item;
 import com.example.SpringPlayground.inflearn.jpa.shop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,15 @@ public class ItemService {
     @Transactional
     public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    @Transactional // 이 어노테이션이 있는 함수에서 해야 영속상태 가능
+    public void updateItem(Long itemId,String name,int price,int stockQuantity) {
+        Item findItem = itemRepository.findOne(itemId); // 이제는 영속상태
+        findItem.change(name,price,stockQuantity);
+
+        //영속상태이므로 값을 세팅하고 merge할 필요 없음
+
     }
 
     public List<Item> findItems() {
