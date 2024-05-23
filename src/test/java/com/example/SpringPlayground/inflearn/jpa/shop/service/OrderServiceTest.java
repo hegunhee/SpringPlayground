@@ -77,10 +77,8 @@ class OrderServiceTest {
     }
 
     private Book createBook(int price, String name, int stockQuantity) {
-        Book book = new Book();
-        book.setName(name);
-        book.setPrice(price);
-        book.setStockQuantity(stockQuantity);
+        Book book = Book.createBook(name, price, stockQuantity);
+
         em.persist(book);
         return book;
     }
