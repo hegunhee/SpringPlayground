@@ -8,6 +8,7 @@ import com.example.SpringPlayground.inflearn.jpa.shop.domain.item.Item;
 import com.example.SpringPlayground.inflearn.jpa.shop.repository.ItemRepository;
 import com.example.SpringPlayground.inflearn.jpa.shop.repository.MemberRepository;
 import com.example.SpringPlayground.inflearn.jpa.shop.repository.OrderRepository;
+import com.example.SpringPlayground.inflearn.jpa.shop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,8 @@ public class OrderService {
      */
     @Transactional
     public Long order(Long memberId,Long itemId,int count) {
+
+        // 내부로 영속 상태를 만들어주도록 하자
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -51,6 +54,7 @@ public class OrderService {
      * 주문 취소
      * dirty check를 통해 내부값들이 변경되면 JPA가 DB값을 자동으로 변경해줌
      */
+    @Transactional
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findOne(orderId);
         order.cancel();
@@ -58,6 +62,8 @@ public class OrderService {
         // 엔티티가 비즈니스 로직을 가지고 객체 지향의 특징을 이용하는것
     }
 
-//    public List<Order> findOrders(OrderSearch orderSearch) { return orderRepository.findAll(orderSearch)}
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 
 }
