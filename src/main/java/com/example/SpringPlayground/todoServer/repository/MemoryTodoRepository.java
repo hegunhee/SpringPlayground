@@ -20,14 +20,13 @@ public class MemoryTodoRepository implements TodoRepository {
     }
 
     @Override
-    public String save(Todo todo) {
+    public void save(Todo todo) {
         map.put(todo.getText(), todo);
-        return todo.getText();
     }
 
     @Override
-    public void delete(String todoText) {
-        map.remove(todoText);
+    public void delete(Todo todo) {
+        map.remove(todo.getText());
     }
 
     @Override

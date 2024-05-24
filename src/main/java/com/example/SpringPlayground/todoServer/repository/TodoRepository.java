@@ -10,9 +10,9 @@ public interface TodoRepository {
 
     public Todo findOne(String id);
 
-    public String save(Todo todo);
+    public void save(Todo todo);
 
-    public void delete(String todoText);
+    public void delete(Todo todo);
 
     public void deleteAll();
 }
