@@ -27,9 +27,9 @@ public class DBTodoRepository implements TodoRepository{
     public void save(Todo todo) {em.persist(todo);}
 
     @Override
-    public void delete(Todo todo) {
+    public void delete(String id) {
         em.createQuery("DELETE FROM Todo WHERE text = :text")
-                .setParameter("text", todo.getText())
+                .setParameter("text", id)
                 .executeUpdate();
     }
 

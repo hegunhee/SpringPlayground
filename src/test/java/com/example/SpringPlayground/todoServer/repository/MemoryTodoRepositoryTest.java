@@ -48,7 +48,7 @@ class MemoryTodoRepositoryTest {
         //when
         repository.save(todo1);
         repository.save(todo2);
-        repository.delete(todo1);
+        repository.delete(todo1.getText());
         //then
         List<Todo> todoList = repository.findAll();
         Todo remainTodo = todoList.get(0);

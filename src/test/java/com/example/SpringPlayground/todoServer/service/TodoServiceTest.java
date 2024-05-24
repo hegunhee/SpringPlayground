@@ -59,7 +59,7 @@ class TodoServiceTest {
         todoService.save(studyTodo.getText());
         todoService.save(englishTodo.getText());
         //when
-        todoService.delete(studyTodo);
+        todoService.delete(studyTodo.getText());
         List<Todo> todoList = todoService.findAll();
         //then
         assertThat(1).isEqualTo(todoList.size());
