@@ -25,8 +25,8 @@ public class MemoryTodoRepository implements TodoRepository {
     }
 
     @Override
-    public void delete(Todo todo) {
-        map.remove(todo.getText());
+    public void delete(String id) {
+        map.remove(id);
     }
 
     @Override

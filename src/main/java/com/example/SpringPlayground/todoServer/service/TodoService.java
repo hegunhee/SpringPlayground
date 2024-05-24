@@ -31,9 +31,9 @@ public class TodoService {
     }
 
     @Transactional
-    public String delete(Todo todo) {
-        todoRepository.delete(todo);
-        return todo.getText();
+    public String delete(String todoId) {
+        todoRepository.delete(todoId);
+        return todoId;
     }
 
     @Transactional

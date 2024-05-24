@@ -12,7 +12,7 @@ public interface TodoRepository {
 
     public void save(Todo todo);
 
-    public void delete(Todo todo);
+    public void delete(String id);
 
     public void deleteAll();
 }
