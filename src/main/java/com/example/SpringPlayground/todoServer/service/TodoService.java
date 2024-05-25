@@ -17,9 +17,17 @@ public class TodoService {
 
     @Transactional
     public String save(String todoText) {
+        validateDuplicateTodo(todoText);
         Todo todo = Todo.createTodo(todoText);
         todoRepository.save(todo);
         return todoText;
+    }
+
+    private void validateDuplicateTodo(String todoText) {
+        Todo findTodo = todoRepository.findOne(todoText);
+        if(findTodo != null) {
+            throw new IllegalStateException("이미 존재하는 Todo 입니다.");
+        }
     }
 
     public Todo findOne(String todoId) {
