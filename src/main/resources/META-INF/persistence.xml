@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="jpabook">
+        <class>com.example.SpringPlayground.jpabook.domain.Member</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value ="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
