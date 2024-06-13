@@ -9,3 +9,6 @@
   - alt + Ins = 다양한 메서드 자동 생성(constructor, getter setter)
   - ctrl + shift + enter = 해당 줄을 완성시켜줌(들여쓰기)
   - ctrl + alt + p = 파라미터로 꺼낼 수 있음
+
+- 윈도우 단축키
+  - shift + window + 좌, 우 = 현재 화면을 다른 모니터로 옮김
