@@ -1,0 +1,200 @@
+{
+  "ref": "refs/heads/feature/slack-webhook",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "767554b17c9f0513ee6eee46e3cba900a735cc29",
+  "repository": {
+    "id": 790157563,
+    "node_id": "R_kgDOLxjY-w",
+    "name": "SpringPlayground",
+    "full_name": "hegunhee/SpringPlayground",
+    "private": false,
+    "owner": {
+      "name": "hegunhee",
+      "email": "57277631+hegunhee@users.noreply.github.com",
+      "login": "hegunhee",
+      "id": 57277631,
+      "node_id": "MDQ6VXNlcjU3Mjc3NjMx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57277631?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hegunhee",
+      "html_url": "https://github.com/hegunhee",
+      "followers_url": "https://api.github.com/users/hegunhee/followers",
+      "following_url": "https://api.github.com/users/hegunhee/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hegunhee/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hegunhee/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hegunhee/subscriptions",
+      "organizations_url": "https://api.github.com/users/hegunhee/orgs",
+      "repos_url": "https://api.github.com/users/hegunhee/repos",
+      "events_url": "https://api.github.com/users/hegunhee/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hegunhee/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/hegunhee/SpringPlayground",
+    "description": null,
+    "fork": false,
+    "url": "https://github.com/hegunhee/SpringPlayground",
+    "forks_url": "https://api.github.com/repos/hegunhee/SpringPlayground/forks",
+    "keys_url": "https://api.github.com/repos/hegunhee/SpringPlayground/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/hegunhee/SpringPlayground/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/hegunhee/SpringPlayground/teams",
+    "hooks_url": "https://api.github.com/repos/hegunhee/SpringPlayground/hooks",
+    "issue_events_url": "https://api.github.com/repos/hegunhee/SpringPlayground/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/hegunhee/SpringPlayground/events",
+    "assignees_url": "https://api.github.com/repos/hegunhee/SpringPlayground/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/hegunhee/SpringPlayground/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/hegunhee/SpringPlayground/tags",
+    "blobs_url": "https://api.github.com/repos/hegunhee/SpringPlayground/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/hegunhee/SpringPlayground/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/hegunhee/SpringPlayground/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/hegunhee/SpringPlayground/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/hegunhee/SpringPlayground/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/hegunhee/SpringPlayground/languages",
+    "stargazers_url": "https://api.github.com/repos/hegunhee/SpringPlayground/stargazers",
+    "contributors_url": "https://api.github.com/repos/hegunhee/SpringPlayground/contributors",
+    "subscribers_url": "https://api.github.com/repos/hegunhee/SpringPlayground/subscribers",
+    "subscription_url": "https://api.github.com/repos/hegunhee/SpringPlayground/subscription",
+    "commits_url": "https://api.github.com/repos/hegunhee/SpringPlayground/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/hegunhee/SpringPlayground/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/hegunhee/SpringPlayground/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/hegunhee/SpringPlayground/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/hegunhee/SpringPlayground/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/hegunhee/SpringPlayground/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/hegunhee/SpringPlayground/merges",
+    "archive_url": "https://api.github.com/repos/hegunhee/SpringPlayground/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/hegunhee/SpringPlayground/downloads",
+    "issues_url": "https://api.github.com/repos/hegunhee/SpringPlayground/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/hegunhee/SpringPlayground/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/hegunhee/SpringPlayground/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/hegunhee/SpringPlayground/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/hegunhee/SpringPlayground/labels{/name}",
+    "releases_url": "https://api.github.com/repos/hegunhee/SpringPlayground/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/hegunhee/SpringPlayground/deployments",
+    "created_at": 1713785027,
+    "updated_at": "2024-06-28T15:01:04Z",
+    "pushed_at": 1719963975,
+    "git_url": "git://github.com/hegunhee/SpringPlayground.git",
+    "ssh_url": "git@github.com:hegunhee/SpringPlayground.git",
+    "clone_url": "https://github.com/hegunhee/SpringPlayground.git",
+    "svn_url": "https://github.com/hegunhee/SpringPlayground",
+    "homepage": null,
+    "size": 736,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "language": "Java",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "has_discussions": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "archived": false,
+    "disabled": false,
+    "open_issues_count": 1,
+    "license": null,
+    "allow_forking": true,
+    "is_template": false,
+    "web_commit_signoff_required": false,
+    "topics": [
+
+    ],
+    "visibility": "public",
+    "forks": 0,
+    "open_issues": 1,
+    "watchers": 1,
+    "default_branch": "master",
+    "stargazers": 1,
+    "master_branch": "master"
+  },
+  "pusher": {
+    "name": "hegunhee",
+    "email": "57277631+hegunhee@users.noreply.github.com"
+  },
+  "sender": {
+    "login": "hegunhee",
+    "id": 57277631,
+    "node_id": "MDQ6VXNlcjU3Mjc3NjMx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57277631?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/hegunhee",
+    "html_url": "https://github.com/hegunhee",
+    "followers_url": "https://api.github.com/users/hegunhee/followers",
+    "following_url": "https://api.github.com/users/hegunhee/following{/other_user}",
+    "gists_url": "https://api.github.com/users/hegunhee/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/hegunhee/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/hegunhee/subscriptions",
+    "organizations_url": "https://api.github.com/users/hegunhee/orgs",
+    "repos_url": "https://api.github.com/users/hegunhee/repos",
+    "events_url": "https://api.github.com/users/hegunhee/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/hegunhee/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "created": true,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/hegunhee/SpringPlayground/commit/767554b17c9f",
+  "commits": [
+    {
+      "id": "767554b17c9f0513ee6eee46e3cba900a735cc29",
+      "tree_id": "48219b3433204536514a01c600a5e6e60e01966a",
+      "distinct": true,
+      "message": "[slack-webhook] build : slack 의존성 추가, webhook url 추가",
+      "timestamp": "2024-07-03T08:45:57+09:00",
+      "url": "https://github.com/hegunhee/SpringPlayground/commit/767554b17c9f0513ee6eee46e3cba900a735cc29",
+      "author": {
+        "name": "hegunhee",
+        "email": "gunhee0072@gmail.com",
+        "username": "hegunhee"
+      },
+      "committer": {
+        "name": "hegunhee",
+        "email": "gunhee0072@gmail.com",
+        "username": "hegunhee"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "build.gradle",
+        "src/main/resources/application.yml",
+        "src/test/resources/application.yml"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "767554b17c9f0513ee6eee46e3cba900a735cc29",
+    "tree_id": "48219b3433204536514a01c600a5e6e60e01966a",
+    "distinct": true,
+    "message": "[slack-webhook] build : slack 의존성 추가, webhook url 추가",
+    "timestamp": "2024-07-03T08:45:57+09:00",
+    "url": "https://github.com/hegunhee/SpringPlayground/commit/767554b17c9f0513ee6eee46e3cba900a735cc29",
+    "author": {
+      "name": "hegunhee",
+      "email": "gunhee0072@gmail.com",
+      "username": "hegunhee"
+    },
+    "committer": {
+      "name": "hegunhee",
+      "email": "gunhee0072@gmail.com",
+      "username": "hegunhee"
+    },
+    "added": [
+
+    ],
+    "removed": [
+
+    ],
+    "modified": [
+      "build.gradle",
+      "src/main/resources/application.yml",
+      "src/test/resources/application.yml"
+    ]
+  }
+}
