@@ -26,9 +26,13 @@ public class PushMessage implements GithubMessage {
     @JsonProperty("repository")
     private RepositoryInfo repo;
 
+    // 만약 commit이 없는 빈 push라면 slack에 메시지를 전달하지 않음
     @Override
     public SlackPayload toSlackPayload() {
         SlackPayload slackPayload = new SlackPayload();
+        if(commits.isEmpty()) {
+            return slackPayload;
+        }
 
         Header header = new Header(repo.getName() + "에서 Push 이벤트가 발생했습니다.");
         TextImage userImage = user.toTextImageBlock();
