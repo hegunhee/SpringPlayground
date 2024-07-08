@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Section implements Block{
+public class Section implements SlackPayloadComponent {
 
     public Section(List<Text> fields) {
         this.type = "section";

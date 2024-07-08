@@ -32,7 +32,7 @@ class SlackMessageTest {
         SlackPayload slackPayload = new SlackPayload();
         Text text = new Text("네이버링크테스트", "https://naver.com");
         Section section = new Section(List.of(text));
-        slackPayload.addBlock(section);
+        slackPayload.addComponent(section);
 
         //when
         boolean isSuccessful = sendSlackMessage(slackPayload);
@@ -48,7 +48,7 @@ class SlackMessageTest {
         SlackPayload slackPayload = new SlackPayload();
         TextImage textImage = getCatTextImage();
 
-        slackPayload.addBlock(textImage);
+        slackPayload.addComponent(textImage);
         //when
         boolean isSuccessful = sendSlackMessage(slackPayload);
         //then
@@ -65,8 +65,8 @@ class SlackMessageTest {
 
         TextImage textImage = getCatTextImage();
 
-        slackPayload.addBlock(section);
-        slackPayload.addBlock(textImage);
+        slackPayload.addComponent(section);
+        slackPayload.addComponent(textImage);
         //when
         boolean isSuccessful = sendSlackMessage(slackPayload);
         //then
@@ -82,7 +82,7 @@ class SlackMessageTest {
         Text text = new Text("slackUrl 테스트");
         Section section = new Section(List.of(text));
 
-        slackPayload.addBlock(section);
+        slackPayload.addComponent(section);
         try {
             payloadJson = payloadObjectToJsonString(slackPayload);
         } catch (JsonProcessingException jsonProcessingException) {

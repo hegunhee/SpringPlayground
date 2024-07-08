@@ -3,7 +3,7 @@ package com.example.SpringPlayground.githubWebhook.model.slack.blocks;
 import lombok.Data;
 
 @Data
-public class Header implements Block {
+public class Header implements SlackPayloadComponent {
 
     public Header(String text) {
         type = "header";

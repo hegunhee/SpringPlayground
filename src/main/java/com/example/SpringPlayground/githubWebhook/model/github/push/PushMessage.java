@@ -35,11 +35,11 @@ public class PushMessage implements GithubMessage {
         List<Text> commitPayload = commits.stream().map(Commit::toTextBlock).toList();
         Section commitSection = new Section(commitPayload);
 
-        slackPayload.addBlock(header);
-        slackPayload.addBlock(new Divider());
-        slackPayload.addBlock(userImage);
-        slackPayload.addBlock(new Divider());
-        slackPayload.addBlock(commitSection);
+        slackPayload.addComponent(header);
+        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(userImage);
+        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(commitSection);
 
         return slackPayload;
     }

@@ -25,9 +25,9 @@ public class PingMessage implements GithubMessage {
         Header pingHeader = new Header(repo.getName() + " 레포지토리에서 핑 이벤트가 발생했습니다.");
         Section hookSection = hook.toSection();
 
-        slackPayload.addBlock(pingHeader);
-        slackPayload.addBlock(new Divider());
-        slackPayload.addBlock(hookSection);
+        slackPayload.addComponent(pingHeader);
+        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(hookSection);
 
         return slackPayload;
     }
