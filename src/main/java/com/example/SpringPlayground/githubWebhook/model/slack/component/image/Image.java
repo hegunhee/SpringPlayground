@@ -1,9 +1,12 @@
 package com.example.SpringPlayground.githubWebhook.model.slack.component.image;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 public class Image {
 
     public Image(String imageUrl, String altText) {
@@ -11,6 +14,7 @@ public class Image {
         this.imageUrl = imageUrl;
         this.altText = altText;
     }
+
     private String type;
 
     @JsonProperty("image_url")

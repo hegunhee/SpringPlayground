@@ -5,12 +5,15 @@ import com.example.SpringPlayground.githubWebhook.model.slack.component.image.Im
 import com.example.SpringPlayground.githubWebhook.model.slack.component.image.TextImage;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
 /**
  * git webhook response에서 sender에 담겨서 넘어옴
  */
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GithubUser {
 

@@ -3,9 +3,12 @@ package com.example.SpringPlayground.githubWebhook.model.slack.component.image;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 public class TextImage implements SlackPayloadComponent {
 
     public TextImage(Text text, Image image) {

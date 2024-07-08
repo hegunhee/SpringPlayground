@@ -1,10 +1,13 @@
 package com.example.SpringPlayground.githubWebhook.model.slack.component;
 
-import lombok.Data;
+import lombok.*;
 
 
 // Text는 단독으로 생성되는것이 아닌 section type안에 감싸져 있어야하므로 block 타입이 아님
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 public class Text {
 
     /**

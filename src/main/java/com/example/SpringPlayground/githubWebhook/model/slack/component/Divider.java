@@ -1,8 +1,10 @@
 package com.example.SpringPlayground.githubWebhook.model.slack.component;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
 public class Divider implements SlackPayloadComponent {
 
     public Divider() {

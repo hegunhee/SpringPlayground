@@ -1,10 +1,13 @@
 package com.example.SpringPlayground.githubWebhook.model.slack.component;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 public class Section implements SlackPayloadComponent {
 
     public Section(List<Text> fields) {

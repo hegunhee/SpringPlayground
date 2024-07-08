@@ -1,8 +1,11 @@
 package com.example.SpringPlayground.githubWebhook.model.slack.component;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
 public class Header implements SlackPayloadComponent {
 
     public Header(String text) {
