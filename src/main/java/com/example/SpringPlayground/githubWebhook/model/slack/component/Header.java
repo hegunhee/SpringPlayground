@@ -1,4 +1,4 @@
-package com.example.SpringPlayground.githubWebhook.model.slack.blocks;
+package com.example.SpringPlayground.githubWebhook.model.slack.component;
 
 import lombok.Data;
 

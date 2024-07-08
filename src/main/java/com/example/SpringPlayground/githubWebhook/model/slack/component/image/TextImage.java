@@ -1,7 +1,7 @@
-package com.example.SpringPlayground.githubWebhook.model.slack.blocks.image;
+package com.example.SpringPlayground.githubWebhook.model.slack.component.image;
 
-import com.example.SpringPlayground.githubWebhook.model.slack.blocks.SlackPayloadComponent;
-import com.example.SpringPlayground.githubWebhook.model.slack.blocks.Text;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 

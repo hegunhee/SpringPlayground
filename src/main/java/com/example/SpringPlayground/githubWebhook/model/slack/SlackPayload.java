@@ -1,7 +1,6 @@
 package com.example.SpringPlayground.githubWebhook.model.slack;
 
-import com.example.SpringPlayground.githubWebhook.model.slack.blocks.SlackPayloadComponent;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
 import lombok.Data;
 
 import java.util.ArrayList;
