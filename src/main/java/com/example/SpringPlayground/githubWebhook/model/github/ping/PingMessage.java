@@ -29,7 +29,7 @@ public class PingMessage implements GithubMessage {
         Section hookSection = hook.toSection();
 
         slackPayload.addComponent(pingHeader);
-        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(Divider.singleDivider);
         slackPayload.addComponent(hookSection);
 
         return slackPayload;

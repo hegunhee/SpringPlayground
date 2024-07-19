@@ -42,9 +42,9 @@ public class PRMessage implements GithubMessage {
         TextImage userImage = user.toTextImageBlock();
 
         slackPayload.addComponent(header);
-        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(Divider.singleDivider);
         slackPayload.addComponent(prSection);
-        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(Divider.singleDivider);
         slackPayload.addComponent(userImage);
 
         return slackPayload;

@@ -43,9 +43,9 @@ public class PushMessage implements GithubMessage {
         Section commitSection = new Section(commitPayload);
 
         slackPayload.addComponent(header);
-        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(Divider.singleDivider);
         slackPayload.addComponent(userImage);
-        slackPayload.addComponent(new Divider());
+        slackPayload.addComponent(Divider.singleDivider);
         slackPayload.addComponent(commitSection);
 
         return slackPayload;
