@@ -26,8 +26,12 @@ public class SlackService {
 
     public boolean sendSlackNotification(SlackPayload payload) throws RuntimeException {
         try {
-            String json = mapper.writeValueAsString(payload);
-            slack.send(slackWebhookUrl, json);
+            String payloadJson = mapper.writeValueAsString(payload);
+            WebhookResponse webhookResponse = slack.send(slackWebhookUrl, payloadJson);
+
+            log.debug("payloadJson ={}",payloadJson);
+            String webhookMessage = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(webhookResponse);
+            log.debug("webhookMessage ={}",webhookMessage);
         } catch (JsonProcessingException e) {
             log.error("slack 메시지 json 직렬화도중 에러가 발생했습니다. {}",e.toString());
             throw new RuntimeException(e);
