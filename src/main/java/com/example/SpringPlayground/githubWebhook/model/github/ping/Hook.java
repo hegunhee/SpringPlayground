@@ -2,28 +2,39 @@ package com.example.SpringPlayground.githubWebhook.model.github.ping;
 
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Hook {
 
-    private int id;
+    private final int id;
 
-    @JsonProperty("name")
-    private String sendType;
+    private final String sendType;
 
-    @JsonProperty("type")
-    private String hookType;
+    private final String hookType;
 
-    private List<String> events;
+    private final List<String> events;
+
+    @JsonCreator
+    public Hook(
+            @JsonProperty("id") int id,
+            @JsonProperty("name") String sendType,
+            @JsonProperty("type") String hookType,
+            @JsonProperty("events") List<String> events
+    ) {
+        this.id = id;
+        this.sendType = sendType;
+        this.hookType = hookType;
+        this.events = events;
+    }
 
     public Section toSection() {
         Text idText = new Text("id: " + id);
@@ -33,5 +44,7 @@ public class Hook {
         return new Section(List.of(idText,sendTypeText,eventText));
     }
 
-
+    public List<String> getEvents() {
+        return new ArrayList<>(events);
+    }
 }

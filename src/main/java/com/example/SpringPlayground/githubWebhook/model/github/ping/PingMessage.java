@@ -6,21 +6,28 @@ import com.example.SpringPlayground.githubWebhook.model.slack.SlackPayload;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Divider;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Header;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PingMessage implements GithubMessage {
 
-    private Hook hook;
+    private final Hook hook;
 
-    @JsonProperty("repository")
-    private RepositoryInfo repo;
+    private final RepositoryInfo repo;
+
+    @JsonCreator
+    public PingMessage(
+            @JsonProperty("hook") Hook hook,
+            @JsonProperty("repository") RepositoryInfo repo
+    ) {
+        this.hook = hook;
+        this.repo = repo;
+    }
 
     @Override
     public SlackPayload toSlackPayload() {

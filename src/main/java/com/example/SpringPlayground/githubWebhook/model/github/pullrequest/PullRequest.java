@@ -2,6 +2,7 @@ package com.example.SpringPlayground.githubWebhook.model.github.pullrequest;
 
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -10,19 +11,29 @@ import java.util.List;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PullRequest {
 
-    @JsonProperty("html_url")
-    private String url;
+    private final String url;
 
-    private String state;
+    private final String state;
 
-    private String title;
+    private final String title;
 
-    private String body;
+    private final String body;
+
+    @JsonCreator
+    public PullRequest(
+        @JsonProperty("html_url") String url,
+        @JsonProperty("state") String state,
+        @JsonProperty("title") String title,
+        @JsonProperty("body") String body
+    ) {
+        this.url = url;
+        this.state = state;
+        this.title = title;
+        this.body = body;
+    }
 
     public Section toSection() {
         Text prText = new Text(title, url);

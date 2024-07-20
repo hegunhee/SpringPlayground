@@ -8,36 +8,47 @@ import com.example.SpringPlayground.githubWebhook.model.slack.component.Divider;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Header;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.image.TextImage;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PRMessage implements GithubMessage {
 
-    private String action;
+    private final String action;
 
-    @JsonProperty("pull_request")
-    private PullRequest pullRequest;
+    private final PullRequest pullRequest;
 
-    @JsonProperty("repository")
-    private RepositoryInfo repo;
+    private final RepositoryInfo repo;
 
-    @JsonProperty("html_url")
-    private String url;
+    private final String url;
 
-    @JsonProperty("sender")
-    private GithubUser user;
+    private final GithubUser user;
+
+    @JsonCreator
+    public PRMessage(
+            @JsonProperty("action") String action,
+            @JsonProperty("pull_request") PullRequest pullRequest,
+            @JsonProperty("repository") RepositoryInfo repo,
+            @JsonProperty("html_url") String url,
+            @JsonProperty("sender") GithubUser user
+    ) {
+        this.action = action;
+        this.pullRequest = pullRequest;
+        this.repo = repo;
+        this.url = url;
+        this.user = user;
+    }
 
     @Override
     public SlackPayload toSlackPayload() {
         SlackPayload slackPayload = new SlackPayload();
 
-        Header header = new Header(repo.getName()+ "PullRequest가 "+ pullRequest.getState() + " 되었습니다.");
+        String headerTitle = repo.getName() + "PullRequest가 " + pullRequest.getState() + " 되었습니다.";
+        Header header = new Header(headerTitle);
         Section prSection = pullRequest.toSection();
         TextImage userImage = user.toTextImageComponent();
 
