@@ -36,15 +36,15 @@ public class GitHubWebhookController {
             slackService.sendSlackNotification(payload);
         } catch (JsonProcessingException e) {
             log.error("github 응답 json 파싱 실패 ={}", e.toString());
-            return new ResponseEntity("jsonParseError", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("jsonParseError", HttpStatus.NOT_FOUND);
         } catch (RuntimeException e) {
-            return new ResponseEntity("Slack Error", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Slack Error", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity("Ok", HttpStatus.OK);
+        return ResponseEntity.ok("Ok");
     }
 
     @PostMapping("/pull-request")
-    public ResponseEntity pullRequest(
+    public ResponseEntity<String> pullRequest(
             @RequestHeader Map<String, String> headers,
             @RequestBody String requestBody
     ) {
@@ -57,10 +57,10 @@ public class GitHubWebhookController {
             slackService.sendSlackNotification(payload);
         } catch (JsonProcessingException e) {
             log.error("github 응답 json 파싱 실패 ={}", e.toString());
-            return new ResponseEntity("jsonParseError", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("jsonParseError", HttpStatus.NOT_FOUND);
         } catch (RuntimeException e) {
-            return new ResponseEntity("Slack Error", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Slack Error", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity("Ok", HttpStatus.OK);
+        return ResponseEntity.ok("Ok");
     }
 }
