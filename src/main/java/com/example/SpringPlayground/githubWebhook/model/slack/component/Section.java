@@ -18,4 +18,8 @@ public class Section implements SlackPayloadComponent {
     private String type;
 
     private List<Text> fields;
+
+    public boolean fieldIsNotEmpty() {
+        return !fields.isEmpty();
+    }
 }
