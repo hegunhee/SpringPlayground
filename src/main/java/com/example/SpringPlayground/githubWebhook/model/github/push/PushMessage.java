@@ -36,7 +36,7 @@ public class PushMessage implements GithubMessage {
         SlackPayload slackPayload = new SlackPayload();
 
         Header header = new Header(headerTitle());
-        TextImage userImage = user.toTextImageBlock();
+        TextImage userImage = user.toTextImageComponent();
         Section commitSection = commits.toCommitTextSection();
 
         slackPayload.addComponent(header);

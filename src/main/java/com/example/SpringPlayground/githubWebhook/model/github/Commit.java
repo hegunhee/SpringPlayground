@@ -19,7 +19,7 @@ public class Commit {
 
     private String message;
 
-    public Text toTextBlock() {
+    public Text toTextComponent() {
         return new Text(message,url);
     }
 }

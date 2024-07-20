@@ -25,7 +25,9 @@ public class PingMessage implements GithubMessage {
     @Override
     public SlackPayload toSlackPayload() {
         SlackPayload slackPayload = new SlackPayload();
-        Header pingHeader = new Header(repo.getName() + " 레포지토리에서 핑 이벤트가 발생했습니다.");
+
+        String headerTitle = repo.getName() + "레포지토리에서 핑 이벤트가 발생했습니다.";
+        Header pingHeader = new Header(headerTitle);
         Section hookSection = hook.toSection();
 
         slackPayload.addComponent(pingHeader);

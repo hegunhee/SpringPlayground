@@ -38,8 +38,8 @@ public class PRMessage implements GithubMessage {
         SlackPayload slackPayload = new SlackPayload();
 
         Header header = new Header(repo.getName()+ "PullRequest가 "+ pullRequest.getState() + " 되었습니다.");
-        Section prSection = pullRequest.toSectionBlock();
-        TextImage userImage = user.toTextImageBlock();
+        Section prSection = pullRequest.toSection();
+        TextImage userImage = user.toTextImageComponent();
 
         slackPayload.addComponent(header);
         slackPayload.addComponent(Divider.singleDivider);

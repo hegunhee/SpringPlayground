@@ -3,7 +3,6 @@ package com.example.SpringPlayground.githubWebhook.model.github;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import lombok.Getter;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class Commits {
     }
 
     public Section toCommitTextSection() {
-        List<Text> texts = commits.stream().map(Commit::toTextBlock).toList();
+        List<Text> texts = commits.stream().map(Commit::toTextComponent).toList();
         return new Section(texts);
     }
 

@@ -24,10 +24,9 @@ public class PullRequest {
 
     private String body;
 
-    public Section toSectionBlock() {
+    public Section toSection() {
         Text prText = new Text(title, url);
-        Section prSection = new Section(List.of(prText));
-        return prSection;
+        return new Section(List.of(prText));
     }
 }
 
