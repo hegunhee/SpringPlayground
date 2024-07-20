@@ -7,19 +7,18 @@ import lombok.*;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class TextImage implements SlackPayloadComponent {
+
+    private final String type;
+
+    private final Text text;
+
+    @JsonProperty("accessory")
+    private final Image image;
 
     public TextImage(Text text, Image image) {
         this.type = "section";
         this.text = text;
         this.image = image;
     }
-    private String type;
-
-    private Text text;
-
-    @JsonProperty("accessory")
-    private Image image;
 }

@@ -6,9 +6,10 @@ import lombok.*;
 // Text는 단독으로 생성되는것이 아닌 section type안에 감싸져 있어야하므로 block 타입이 아님
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class Text {
+
+    private final String type;
+    private final String text;
 
     /**
      * plain_text의 Text
@@ -28,7 +29,4 @@ public class Text {
         this.type = "mrkdwn";
         this.text = "<" + url + "|" +text + ">";
     }
-    private String type;
-
-    private String text;
 }

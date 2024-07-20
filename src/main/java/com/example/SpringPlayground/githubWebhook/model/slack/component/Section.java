@@ -6,18 +6,16 @@ import java.util.List;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class Section implements SlackPayloadComponent {
+
+    private final String type;
+
+    private final List<Text> fields;
 
     public Section(List<Text> fields) {
         this.type = "section";
         this.fields = fields;
     }
-
-    private String type;
-
-    private List<Text> fields;
 
     public boolean fieldIsNotEmpty() {
         return !fields.isEmpty();

@@ -5,21 +5,19 @@ import lombok.*;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class Image {
+
+    private final String type;
+
+    @JsonProperty("image_url")
+    private final String imageUrl;
+
+    @JsonProperty("alt_text")
+    private final String altText;
 
     public Image(String imageUrl, String altText) {
         this.type = "image";
         this.imageUrl = imageUrl;
         this.altText = altText;
     }
-
-    private String type;
-
-    @JsonProperty("image_url")
-    private String imageUrl;
-
-    @JsonProperty("alt_text")
-    private String altText;
 }

@@ -4,15 +4,14 @@ import lombok.*;
 
 @Getter
 @ToString
-@EqualsAndHashCode
-@NoArgsConstructor
 public class Header implements SlackPayloadComponent {
+
+    private final String type;
+
+    private final Text text;
 
     public Header(String text) {
         type = "header";
         this.text = new Text(text);
     }
-    private String type;
-
-    private Text text;
 }
