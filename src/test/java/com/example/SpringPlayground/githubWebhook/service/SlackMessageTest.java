@@ -3,6 +3,7 @@ package com.example.SpringPlayground.githubWebhook.service;
 import com.example.SpringPlayground.githubWebhook.constants.Constants;
 import com.example.SpringPlayground.githubWebhook.model.slack.SlackPayload;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.image.Image;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.image.TextImage;
@@ -12,10 +13,12 @@ import com.slack.api.Slack;
 import com.slack.api.webhook.WebhookResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,73 +29,77 @@ class SlackMessageTest {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
+    private final List<SlackPayloadComponent> components = new ArrayList<>();
+
+    @BeforeEach
+    public void clearComponents() {
+        components.clear();
+    }
+
     @Test
     public void sendClickableMessage() throws RuntimeException {
         //given
-        SlackPayload slackPayload = new SlackPayload();
-        Text text = new Text("네이버링크테스트", "https://naver.com");
+        Text text = Text.createMarkdownText("네이버링크테스트", "https://naver.com");
         Section section = new Section(List.of(text));
-        slackPayload.addComponent(section);
+        components.add(section);
 
         //when
-        boolean isSuccessful = sendSlackMessage(slackPayload);
+        boolean isSuccessful = sendSlackMessage(new SlackPayload(components));
 
         //then
         assertThat(isSuccessful).isEqualTo(true);
-
+        assertThat(components.size()).isEqualTo(1);
     }
 
     @Test
     public void sendImageMessage() throws RuntimeException {
         //given
-        SlackPayload slackPayload = new SlackPayload();
         TextImage textImage = getCatTextImage();
+        components.add(textImage);
 
-        slackPayload.addComponent(textImage);
         //when
-        boolean isSuccessful = sendSlackMessage(slackPayload);
+
+        boolean isSuccessful = sendSlackMessage(new SlackPayload(components));
         //then
         assertThat(isSuccessful).isEqualTo(true);
+        assertThat(components.size()).isEqualTo(1);
     }
 
     @Test
     public void hasTwoBlockMessage() throws RuntimeException {
         //given
-        SlackPayload slackPayload = new SlackPayload();
-
-        Text text = new Text("두개의 블럭이 들어가있는지 테스트");
+        Text text = Text.createPlaneText("두개의 블럭이 들어가있는지 테스트");
         Section section = new Section(List.of(text));
-
         TextImage textImage = getCatTextImage();
 
-        slackPayload.addComponent(section);
-        slackPayload.addComponent(textImage);
+        components.add(section);
+        components.add(textImage);
         //when
-        boolean isSuccessful = sendSlackMessage(slackPayload);
+        boolean isSuccessful = sendSlackMessage(new SlackPayload(components));
         //then
         assertThat(isSuccessful).isEqualTo(true);
+        assertThat(components.size()).isEqualTo(2);
     }
 
     @DisplayName("만약 slackWebhookUrl이 다르다면 IOException이 발생")
     @Test
     public void slackUrlIncorrect() {
-        SlackPayload slackPayload = new SlackPayload();
         String payloadJson;
 
-        Text text = new Text("slackUrl 테스트");
+        Text text = Text.createPlaneText("slackUrl 테스트");
         Section section = new Section(List.of(text));
 
-        slackPayload.addComponent(section);
+        components.add(section);
         try {
-            payloadJson = payloadObjectToJsonString(slackPayload);
+            payloadJson = payloadObjectToJsonString(new SlackPayload(components));
         } catch (JsonProcessingException jsonProcessingException) {
             log.error("json 파싱중 문제가 발생했습니다. {}", jsonProcessingException.toString());
             throw new RuntimeException(jsonProcessingException);
         }
 
-        Assertions.assertThrows(IOException.class, () -> {
-            slack.send(Constants.INCORRECT_SLACK_WEBHOOK_URL, payloadJson);
-        });
+        Assertions.assertThrows(IOException.class, () ->
+                slack.send(Constants.INCORRECT_SLACK_WEBHOOK_URL, payloadJson)
+        );
     }
 
     private boolean sendSlackMessage(SlackPayload payload) throws RuntimeException {
@@ -115,7 +122,7 @@ class SlackMessageTest {
 
     private TextImage getCatTextImage() {
         Image image = new Image("https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg", "cute cat");
-        Text githubText = new Text("cute cat");
+        Text githubText = Text.createPlaneText("cute cat");
         return new TextImage(githubText, image);
     }
 }
