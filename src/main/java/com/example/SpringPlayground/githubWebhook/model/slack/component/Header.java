@@ -12,6 +12,6 @@ public class Header implements SlackPayloadComponent {
 
     public Header(String text) {
         type = "header";
-        this.text = new Text(text);
+        this.text = Text.createPlaneText(text);
     }
 }

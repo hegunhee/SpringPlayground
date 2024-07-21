@@ -36,7 +36,7 @@ public class PullRequest {
     }
 
     public Section toSection() {
-        Text prText = new Text(title, url);
+        Text prText = Text.createMarkdownText(title, url);
         return new Section(List.of(prText));
     }
 }

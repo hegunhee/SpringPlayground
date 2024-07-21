@@ -24,6 +24,6 @@ public class Commits {
     }
 
     public List<Commit> getCommits() {
-        return new ArrayList<Commit>(commits);
+        return new ArrayList<>(commits);
     }
 }

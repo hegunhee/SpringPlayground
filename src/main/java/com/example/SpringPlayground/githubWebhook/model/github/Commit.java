@@ -29,6 +29,6 @@ public class Commit {
     }
 
     public Text toTextComponent() {
-        return new Text(message,url);
+        return Text.createMarkdownText(message,url);
     }
 }

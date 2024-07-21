@@ -37,9 +37,9 @@ public class Hook {
     }
 
     public Section toSection() {
-        Text idText = new Text("id: " + id);
-        Text sendTypeText = new Text("보낸 클라이언트: " + sendType);
-        Text eventText = new Text("처리하는 이벤트: " + events.toString());
+        Text idText = Text.createPlaneText("id: " + id);
+        Text sendTypeText = Text.createPlaneText("보낸 클라이언트: " + sendType);
+        Text eventText = Text.createPlaneText("처리하는 이벤트: " + events.toString());
 
         return new Section(List.of(idText,sendTypeText,eventText));
     }

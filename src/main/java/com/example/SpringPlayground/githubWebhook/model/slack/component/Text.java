@@ -11,22 +11,19 @@ public class Text {
     private final String type;
     private final String text;
 
-    /**
-     * plain_text의 Text
-     * @param text = plain_text
-     */
-    public Text(String text) {
-        this.type = "plain_text";
+    private Text(String type, String text) {
+        this.type = type;
         this.text = text;
     }
 
-    /**
-     * mrkdwn type의 Text
-     * @param text 글자
-     * @param url 클릭했을때 이동하는 url
-     */
-    public Text(String text,String url) {
-        this.type = "mrkdwn";
-        this.text = "<" + url + "|" +text + ">";
+    public static Text createPlaneText(String text) {
+        String type = "plain_text";
+        return new Text(type,text);
+    }
+
+    public static Text createMarkdownText(String text,String url) {
+        String type = "mrkdwn";
+        String SlackMarkdownString = "<" + url + "|" +text + ">";
+        return new Text(type,SlackMarkdownString);
     }
 }

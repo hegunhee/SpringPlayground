@@ -36,7 +36,7 @@ public class GithubUser {
     public TextImage toTextImageComponent() {
         String textTitle = "보낸 사람 : " + userName;
 
-        Text userText = new Text(textTitle, url);
+        Text userText = Text.createMarkdownText(textTitle, url);
         Image userImage = new Image(avatarUrl, userName);
 
         return new TextImage(userText,userImage);
