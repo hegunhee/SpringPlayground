@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PRMessage implements GithubMessage {
 

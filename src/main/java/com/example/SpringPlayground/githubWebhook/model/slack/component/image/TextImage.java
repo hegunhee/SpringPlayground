@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
-@ToString
 public class TextImage implements SlackPayloadComponent {
 
     private final String type;

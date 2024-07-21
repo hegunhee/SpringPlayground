@@ -12,7 +12,6 @@ import lombok.*;
  * git webhook response에서 sender에 담겨서 넘어옴
  */
 @Getter
-@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GithubUser {
 

@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@ToString
 public class Divider implements SlackPayloadComponent {
 
     private final String type;

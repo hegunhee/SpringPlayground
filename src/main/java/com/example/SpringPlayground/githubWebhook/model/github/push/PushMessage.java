@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PushMessage implements GithubMessage {
 

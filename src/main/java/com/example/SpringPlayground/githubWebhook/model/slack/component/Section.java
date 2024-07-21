@@ -5,7 +5,6 @@ import lombok.*;
 import java.util.List;
 
 @Getter
-@ToString
 public class Section implements SlackPayloadComponent {
 
     private final String type;

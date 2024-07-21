@@ -3,12 +3,10 @@ package com.example.SpringPlayground.githubWebhook.model.github;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Text;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@ToString
 public class Commits {
 
     private final List<Commit> commits;

@@ -5,7 +5,6 @@ import lombok.*;
 
 // Text는 단독으로 생성되는것이 아닌 section type안에 감싸져 있어야하므로 block 타입이 아님
 @Getter
-@ToString
 public class Text {
 
     private final String type;

@@ -10,7 +10,6 @@ import lombok.*;
 import java.util.List;
 
 @Getter
-@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PullRequest {
 
