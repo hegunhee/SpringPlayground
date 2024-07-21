@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -33,21 +36,22 @@ public class PushMessage implements GithubMessage {
 
     @Override
     public SlackPayload toSlackPayload() {
-        SlackPayload slackPayload = new SlackPayload();
+        List<SlackPayloadComponent> components = new ArrayList<>();
 
         Header header = new Header(headerTitle());
         TextImage userImage = user.toTextImageComponent();
         Section commitSection = commits.toCommitTextSection();
 
-        slackPayload.addComponent(header);
-        slackPayload.addComponent(Divider.singleDivider);
-        slackPayload.addComponent(userImage);
-        slackPayload.addComponent(Divider.singleDivider);
+
+        components.add(header);
+        components.add(Divider.singleDivider);
+        components.add(userImage);
+        components.add(Divider.singleDivider);
 
         if (commitSection.fieldIsNotEmpty()) {
-            slackPayload.addComponent(commitSection);
+            components.add(commitSection);
         }
-        return slackPayload;
+        return new SlackPayload(components);
     }
 
     private String headerTitle() {

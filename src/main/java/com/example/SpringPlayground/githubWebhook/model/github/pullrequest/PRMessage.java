@@ -7,11 +7,15 @@ import com.example.SpringPlayground.githubWebhook.model.slack.SlackPayload;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Divider;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Header;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.image.TextImage;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @ToString
@@ -45,19 +49,19 @@ public class PRMessage implements GithubMessage {
 
     @Override
     public SlackPayload toSlackPayload() {
-        SlackPayload slackPayload = new SlackPayload();
+        List<SlackPayloadComponent> components = new ArrayList<>();
 
         String headerTitle = repo.getName() + "PullRequest가 " + pullRequest.getState() + " 되었습니다.";
         Header header = new Header(headerTitle);
         Section prSection = pullRequest.toSection();
         TextImage userImage = user.toTextImageComponent();
 
-        slackPayload.addComponent(header);
-        slackPayload.addComponent(Divider.singleDivider);
-        slackPayload.addComponent(prSection);
-        slackPayload.addComponent(Divider.singleDivider);
-        slackPayload.addComponent(userImage);
+        components.add(header);
+        components.add(Divider.singleDivider);
+        components.add(prSection);
+        components.add(Divider.singleDivider);
+        components.add(userImage);
 
-        return slackPayload;
+        return new SlackPayload(components);
     }
 }

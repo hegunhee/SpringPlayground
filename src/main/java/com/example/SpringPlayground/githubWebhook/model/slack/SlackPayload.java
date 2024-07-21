@@ -12,12 +12,8 @@ public class SlackPayload {
     // JsonProperty가 적용되지 않음
     private final List<SlackPayloadComponent> blocks;
 
-    public SlackPayload() {
-        this.blocks = new ArrayList<>();
-    }
-
-    public void addComponent(SlackPayloadComponent slackPayloadComponent) {
-        this.blocks.add(slackPayloadComponent);
+    public SlackPayload(List<SlackPayloadComponent> blocks) {
+        this.blocks = blocks;
     }
 
     public List<SlackPayloadComponent> getBlocks() {

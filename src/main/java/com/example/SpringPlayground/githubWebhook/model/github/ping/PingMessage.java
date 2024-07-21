@@ -6,10 +6,14 @@ import com.example.SpringPlayground.githubWebhook.model.slack.SlackPayload;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Divider;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Header;
 import com.example.SpringPlayground.githubWebhook.model.slack.component.Section;
+import com.example.SpringPlayground.githubWebhook.model.slack.component.SlackPayloadComponent;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @ToString
@@ -31,16 +35,16 @@ public class PingMessage implements GithubMessage {
 
     @Override
     public SlackPayload toSlackPayload() {
-        SlackPayload slackPayload = new SlackPayload();
+        List<SlackPayloadComponent> components = new ArrayList<>();
 
         String headerTitle = repo.getName() + "레포지토리에서 핑 이벤트가 발생했습니다.";
         Header pingHeader = new Header(headerTitle);
         Section hookSection = hook.toSection();
 
-        slackPayload.addComponent(pingHeader);
-        slackPayload.addComponent(Divider.singleDivider);
-        slackPayload.addComponent(hookSection);
+        components.add(pingHeader);
+        components.add(Divider.singleDivider);
+        components.add(hookSection);
 
-        return slackPayload;
+        return new SlackPayload(components);
     }
 }
