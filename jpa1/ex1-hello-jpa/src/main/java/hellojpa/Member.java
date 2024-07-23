@@ -18,7 +18,7 @@ public class Member extends BaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // 프록시 객체로 조회함
     @JoinColumn(name = "TEAM_ID",insertable = false,updatable = false) // 읽기전용이므로 이렇게 설정해야함
     private Team team;
 
@@ -26,8 +26,6 @@ public class Member extends BaseEntity {
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
 
-    @OneToMany(mappedBy = "m")
-    private MemberProduct order;
     public Long getId() {
         return id;
     }
@@ -50,4 +48,11 @@ public class Member extends BaseEntity {
 //    } // 연관관계 편의 메서드
 
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }
