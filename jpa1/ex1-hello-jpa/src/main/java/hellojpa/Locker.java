@@ -11,6 +11,4 @@ public class Locker {
     @Id @GeneratedValue
     private Long id;
 
-    @OneToOne(mappedBy = "locker")
-    private String name;
 }

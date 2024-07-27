@@ -13,6 +13,4 @@ public class Product {
 
     private String name;
 
-    @OneToMany(mappedBy = "p")
-    private MemberProduct order;
 }
