@@ -183,3 +183,10 @@ jdbc/jdbc/.idea/jarRepositories.xml
 jdbc/jdbc/.idea/runConfigurations.xml
 jdbc/jdbc/.idea/vcs.xml
 jdbc/jdbc/.idea/vcs.xml
+jpa-1/jpashop/.idea/.gitignore
+jpa-1/jpashop/.idea/vcs.xml
+jpa-1/jpashop/.idea/gradle.xml
+jpa-1/jpashop/.idea/jarRepositories.xml
+jpa-1/jpashop/.idea/runConfigurations.xml
+jpa-1/jpashop/.idea/misc.xml
+jpa-1/jpashop/.idea/compiler.xml
