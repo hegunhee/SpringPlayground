@@ -170,3 +170,16 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,gradle
 mvc2/jpql/jpql.iml
 mvc2/jpql/.idea/workspace.xml
+jdbc/jdbc/.idea/misc.xml
+.idea/.gitignore
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/SpringPlayground.iml
+.idea/vcs.xml
+jdbc/jdbc/.idea/.gitignore
+jdbc/jdbc/.idea/compiler.xml
+jdbc/jdbc/.idea/gradle.xml
+jdbc/jdbc/.idea/jarRepositories.xml
+jdbc/jdbc/.idea/runConfigurations.xml
+jdbc/jdbc/.idea/vcs.xml
+jdbc/jdbc/.idea/vcs.xml
