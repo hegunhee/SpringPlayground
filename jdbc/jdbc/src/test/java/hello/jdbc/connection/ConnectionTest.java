@@ -10,12 +10,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static hello.jdbc.connection.ConnectionConst.*;
+
 
 @Slf4j
 public class ConnectionTest {
 
     @Test
     void driverManger() throws SQLException {
+
         Connection con1 = DriverManager.getConnection(URL, USERNAME, PW);
         Connection con2 = DriverManager.getConnection(URL, USERNAME, PW);
         log.info("connection={}, class={}",con1,con1.getClass());
@@ -30,12 +33,12 @@ public class ConnectionTest {
     }
 
     @Test
-    void dataSourceConnectionPool(){
+    void dataSourceConnectionPool() throws SQLException, InterruptedException {
         //커넥션 풀링
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl(URL);
         dataSource.setUsername(USERNAME);
-        dataSource.setPassword(PASSWORD);
+        dataSource.setPassword(PW);
         dataSource.setMaximumPoolSize(10);
         dataSource.setPoolName("MyPool");
 
