@@ -191,3 +191,11 @@ jpa-1/jpashop/.idea/runConfigurations.xml
 jpa-1/jpashop/.idea/misc.xml
 jpa-1/jpashop/.idea/compiler.xml
 jdbc/jdbc/.idea/uiDesigner.xml
+spring-db2/itemservice-db/.idea/.gitignore
+spring-db2/itemservice-db/.idea/compiler.xml
+spring-db2/itemservice-db/.idea/misc.xml
+spring-db2/itemservice-db/.idea/vcs.xml
+spring-db2/itemservice-db/.idea/runConfigurations.xml
+spring-db2/itemservice-db/.idea/jarRepositories.xml
+spring-db2/itemservice-db/.idea/gradle.xml
+spring-db2/itemservice-db/HELP.md
