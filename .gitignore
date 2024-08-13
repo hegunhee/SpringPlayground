@@ -1,4 +1,4 @@
-﻿# Created by https://www.toptal.com/developers/gitignore/api/java,intellij,gradle
+# Created by https://www.toptal.com/developers/gitignore/api/java,intellij,gradle
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij,gradle
 
 ### Intellij ###
@@ -168,6 +168,8 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,gradle
+jpa1/jpashop/.idea/vcs.xml
+mvc2/jpql/.idea
 mvc2/jpql/jpql.iml
 mvc2/jpql/.idea/workspace.xml
 jdbc/jdbc/.idea/misc.xml
@@ -199,3 +201,4 @@ spring-db2/itemservice-db/.idea/runConfigurations.xml
 spring-db2/itemservice-db/.idea/jarRepositories.xml
 spring-db2/itemservice-db/.idea/gradle.xml
 spring-db2/itemservice-db/HELP.md
+jpa-1/jpashop/.idea/compiler.xml
