@@ -34,7 +34,7 @@ public class OrderRepository {
             } else {
                 jpql += " and";
             }
-            jpql += " o.status = :status"
+            jpql += " o.status = :status";
         }
 
         if (StringUtils.hasText(orderSearch.getMemberName())) {
@@ -56,6 +56,6 @@ public class OrderRepository {
         if(StringUtils.hasText(orderSearch.getMemberName())) {
             query = query.setParameter("name",orderSearch.getMemberName());
         }
-        return query.getResultList()
+        return query.getResultList();
     }
 }
