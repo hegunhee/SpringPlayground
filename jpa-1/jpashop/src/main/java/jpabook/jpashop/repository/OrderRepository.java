@@ -23,7 +23,7 @@ public class OrderRepository {
         return em.find(Order.class,id);
     }
 
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
@@ -34,7 +34,7 @@ public class OrderRepository {
             } else {
                 jpql += " and";
             }
-            jpql += " o.status = :status"
+            jpql += " o.status = :status";
         }
 
         if (StringUtils.hasText(orderSearch.getMemberName())) {
@@ -56,6 +56,35 @@ public class OrderRepository {
         if(StringUtils.hasText(orderSearch.getMemberName())) {
             query = query.setParameter("name",orderSearch.getMemberName());
         }
-        return query.getResultList()
+        return query.getResultList();
     }
+
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class
+        ).getResultList(); // 내부적으로 key값을 비교하는 inner join을 만들어줌
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset,int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class
+        ).setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList(); // 내부적으로 key값을 비교하는 inner join을 만들어줌
+    }
+
+    public List<Order> findAllWithTeam() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i",Order.class)
+                .getResultList();
+    }
+
 }
