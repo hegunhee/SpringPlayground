@@ -67,4 +67,24 @@ public class OrderRepository {
         ).getResultList(); // 내부적으로 key값을 비교하는 inner join을 만들어줌
     }
 
+    public List<Order> findAllWithMemberDelivery(int offset,int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class
+        ).setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList(); // 내부적으로 key값을 비교하는 inner join을 만들어줌
+    }
+
+    public List<Order> findAllWithTeam() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i",Order.class)
+                .getResultList();
+    }
+
 }
