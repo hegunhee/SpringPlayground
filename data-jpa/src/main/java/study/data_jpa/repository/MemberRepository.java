@@ -1,7 +1,11 @@
 package study.data_jpa.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import jakarta.persistence.LockModeType;
+import jakarta.persistence.QueryHint;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import study.data_jpa.dto.MemberDto;
 import study.data_jpa.entity.Member;
@@ -36,4 +40,36 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
     Member findMemberByUsername(String username); // 단건
 
     Optional<Member> findOptionalMemberByUsername(String username); // 단건 Optional
+
+    @Query(value = "select m from Member m left join m.team t",
+        countQuery = "select count(m) from Member m")
+    Page<Member> findByAge(int age, Pageable pageable);
+
+    // 해당 어노테이션이 없으면 update가 진행되지 않음 (Exception 발생, DML을 사용할 수 없습니다...)
+    @Modifying(clearAutomatically = true) // clearAutomatically 설정을 한다면 영속성 컨텍스트를 날리지않아도됨
+    @Query("update Member m set m.age = m.age + 1 where m.age >= :age")
+    int bulkAgePlus(@Param("age") int age);
+
+    //쿼리 설정없이 페치조인을 도와주는게 @EntityGraph
+    @Query("select m from Member m left join fetch m.team") // 한방쿼리로 다 끌어옴
+    List<Member> findMemberFetchJoin();
+
+    @Override
+    @EntityGraph(attributePaths = {"team"})
+    List<Member> findAll();
+
+    @EntityGraph(attributePaths = {"team"})
+    @Query("select m from Member m")
+    List<Member> findMemberEntityGraph();
+
+    @EntityGraph(attributePaths = {"team"})
+    // @EntityGraph("Member.all")
+    List<Member> findEntityGraphByUsername(@Param("username") String username);
+
+    // 과연 이게 효율적인가? 암달의 법칙을 참고
+    @QueryHints(value = @QueryHint(name = "org.hibernate.readOnly",value = "true"))
+    Member findReadOnlyByUsername(String username);
+
+    @Lock(LockModeType.WRITE)
+    List<Member> findLockByUsername(String username);
 }
