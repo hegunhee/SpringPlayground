@@ -1,5 +1,7 @@
 package study.data_jpa.dto;
 
+import study.data_jpa.entity.Member;
+
 public class MemberDto {
 
     private final Long id;
@@ -10,5 +12,11 @@ public class MemberDto {
         this.id = id;
         this.username = username;
         this.teamName = teamName;
+    }
+
+    public MemberDto(Member member) {
+        id = member.getId();
+        username = member.getUsername();
+        teamName = member.getTeam().getName();
     }
 }

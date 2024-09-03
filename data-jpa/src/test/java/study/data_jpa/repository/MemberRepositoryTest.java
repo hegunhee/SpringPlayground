@@ -260,4 +260,9 @@ public class MemberRepositoryTest {
         List<Member> result = memberRepository.findLockByUsername(member1.getUsername()); // 스냅샷을 만들지 않음
 //        findMember.setUsername -> 에러를 발생
     }
+
+    @Test
+    public void callCustom() {
+        List<Member> result = memberRepository.findMemberCustom();
+    }
 }
