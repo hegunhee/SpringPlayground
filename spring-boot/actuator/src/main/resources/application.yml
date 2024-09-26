@@ -1,0 +1,32 @@
+management:
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-componets: always
+    #      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: hello-actuator
+    company: gh
+
+logging:
+  level:
+    hello.controller: debug
+
+server:
+  tomcat:
+    mbeanregistry:
+      enable: true
